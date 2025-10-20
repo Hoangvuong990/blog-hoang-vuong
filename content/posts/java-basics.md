@@ -1,6 +1,6 @@
 ---
 title: "Java Cơ Bản - Từ Zero đến Hero"
-date: "2024-01-15"
+date: "2025-09-16"
 excerpt: "Khám phá những khái niệm cơ bản nhất của Java, từ cú pháp đến OOP. Bài viết dành cho người mới bắt đầu học lập trình Java."
 category: "Java"
 tags: ["Java", "OOP", "Cơ bản", "Lập trình"]

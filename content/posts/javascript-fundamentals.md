@@ -1,6 +1,6 @@
 ---
 title: "JavaScript Cơ Bản - Sức mạnh của Web"
-date: "2024-01-20"
+date: "2025-09-25"
 excerpt: "Tìm hiểu JavaScript từ những khái niệm cơ bản nhất. Từ biến, hàm đến DOM manipulation và async programming."
 category: "JavaScript"
 tags: ["JavaScript", "Web Development", "DOM", "ES6"]

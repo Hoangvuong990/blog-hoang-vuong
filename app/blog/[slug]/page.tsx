@@ -101,8 +101,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           
           <div className="flex items-center space-x-4 text-gray-600">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-bold">HV</span>
+              <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center overflow-hidden">
+                <img
+                  src="/logo.jpg"       
+                  alt="Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span>Tác giả: {post.author}</span>
             </div>
@@ -127,43 +131,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </section>
-
-      {/* Author Info */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card">
-            <div className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6">
-              <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xl font-bold">HV</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {post.author}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Sinh viên chuyên ngành Lập trình mạng. Đam mê chia sẻ kiến thức về Java và JavaScript.
-                </p>
-                <div className="flex space-x-4">
-                  <a 
-                    href="mailto:dinhhoangvuong2k4@gmail.com" 
-                    className="text-primary-600 hover:text-primary-700 font-medium"
-                  >
-                    Email
-                  </a>
-                  <a 
-                    href="https://github.com/Zitests" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-primary-600 hover:text-primary-700 font-medium"
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Related Posts */}
       <section className="py-16 bg-gray-50">
@@ -172,7 +140,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Bài viết liên quan
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* This would be populated with related posts in a real implementation */}
             <div className="card">
               <div className="flex items-center space-x-2 mb-3">
                 <span className="bg-primary-100 text-primary-800 text-sm font-medium px-3 py-1 rounded-full">
@@ -223,31 +190,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-primary-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Thích bài viết này?
-          </h2>
-          <p className="text-xl text-primary-100 mb-8">
-            Đăng ký để nhận thông báo khi có bài viết mới về Java và JavaScript
-          </p>
-          <div className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Nhập email của bạn"
-                className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-primary-300 focus:outline-none"
-              />
-              <button className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-colors duration-200">
-                Đăng ký
-              </button>
-            </div>
-            <p className="text-primary-200 text-sm mt-4">
-              Chúng tôi sẽ không spam bạn. Hủy đăng ký bất cứ lúc nào.
-            </p>
-          </div>
-        </div>
-      </section>
+      
     </div>
   )
 }

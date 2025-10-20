@@ -109,8 +109,8 @@ export default async function Blog() {
                           </h4>
                           <p className="text-sm text-gray-600">
                             {posts[0].category === 'Java' 
-                              ? 'Backend Development' 
-                              : 'Frontend & Backend'
+                              ? '' 
+                              : ''
                             }
                           </p>
                         </div>
@@ -178,31 +178,7 @@ export default async function Blog() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-primary-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Đăng ký nhận thông báo
-          </h2>
-          <p className="text-xl text-primary-100 mb-8">
-            Nhận thông báo khi có bài viết mới về Java và JavaScript
-          </p>
-          <div className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Nhập email của bạn"
-                className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-primary-300 focus:outline-none"
-              />
-              <button className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-colors duration-200">
-                Đăng ký
-              </button>
-            </div>
-            <p className="text-primary-200 text-sm mt-4">
-              Chúng tôi sẽ không spam bạn. Hủy đăng ký bất cứ lúc nào.
-            </p>
-          </div>
-        </div>
-      </section>
+      
     </div>
   )
 }

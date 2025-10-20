@@ -1,6 +1,7 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import emailjs from "emailjs-com"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -19,17 +22,58 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    setTimeout(() => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.NEXT_PUBLIC_SERVICE_ID_EMAILJS
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.NEXT_PUBLIC_TEMPLATE_ID_EMAILJS
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.NEXT_PUBLIC_PUBLIC_KEY_EMAILJS
+
+    if (!serviceId || !templateId || !publicKey) {
+      const msg = 'EmailJS keys are not set. Make sure public keys (NEXT_PUBLIC_*) are defined in .env.local'
+      console.error(msg, { serviceId, templateId, publicKey })
+      setSubmitErrorMessage(msg)
+      setSubmitStatus('error')
       setIsSubmitting(false)
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 2000)
-  }
+      return
+    }
+
+    const formEl = formRef.current || (e.target as HTMLFormElement)
+
+    emailjs
+      .sendForm(serviceId, templateId, formEl, publicKey)
+      .then(
+        () => {
+          setSubmitStatus('success')
+          setSubmitErrorMessage(null)
+          setIsSubmitting(false)
+          // clear form fields
+          setFormData({ name: '', email: '', subject: '', message: '' })
+        },
+        (error) => {
+          console.error('Lỗi gửi email:', error)
+          const errMsg = error?.text || error?.message || JSON.stringify(error)
+          setSubmitErrorMessage(String(errMsg))
+          setSubmitStatus('error')
+          setIsSubmitting(false)
+        }
+      )
+  };
+
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.NEXT_PUBLIC_PUBLIC_KEY_EMAILJS
+    if (publicKey) {
+      try {
+      
+        if (emailjs.init) emailjs.init(publicKey)
+        console.debug('EmailJS initialized with public key')
+      } catch (err) {
+        console.warn('EmailJS init failed', err)
+      }
+    } else {
+      console.debug('EmailJS public key not found in env')
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -49,6 +93,7 @@ export default function Contact() {
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
@@ -131,11 +176,24 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-gray-400 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200"
+                  className={`w-full ${
+                    isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-primary-600 hover:bg-primary-700'
+                  } text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200`}
                 >
                   {isSubmitting ? 'Đang gửi...' : 'Gửi tin nhắn'}
                 </button>
               </form>
+
+              {submitStatus === "success" && (
+                <p className="mt-4 text-green-600 font-medium">
+                  ✅ Tin nhắn đã được gửi thành công!
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className="mt-4 text-red-600 font-medium">
+                  ❌ Gửi tin nhắn thất bại. Vui lòng thử lại.
+                </p>
+               )}
             </div>
 
             {/* Contact Info */}
@@ -143,7 +201,7 @@ export default function Contact() {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Thông tin liên hệ
               </h2>
-              
+
               <div className="space-y-8">
                 {/* Email */}
                 <div className="flex items-start space-x-4">
@@ -155,8 +213,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
                     <p className="text-gray-600 mb-2">dinhhoangvuong2k4@gmail.com</p>
-                    <a 
-                      href="mailto:dinhhoangvuong2k4@gmail.com" 
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=dinhhoangvuong2k4@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-primary-600 hover:text-primary-700 font-medium"
                     >
                       Gửi email ngay
@@ -214,32 +274,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Vị trí</h3>
-                    <p className="text-gray-600">Việt Nam</p>
+                    <p className="text-gray-600">Tp.Hồ Chí Minh, Việt Nam</p>
                   </div>
                 </div>
               </div>
-
-              {/* Quick Contact */}
-              <div className="mt-12 p-6 bg-primary-50 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Liên hệ nhanh
-                </h3>
-                <div className="space-y-3">
-                  <a 
-                    href="mailto:dinhhoangvuong2k4@gmail.com?subject=Hỏi về lập trình"
-                    className="block w-full bg-primary-600 hover:bg-primary-700 text-white text-center font-medium py-3 px-4 rounded-lg transition-colors duration-200"
-                  >
-                    Gửi email về lập trình
-                  </a>
-                  <a 
-                    href="mailto:dinhhoangvuong2k4@gmail.com?subject=Hợp tác dự án"
-                    className="block w-full bg-white hover:bg-gray-50 text-primary-600 text-center font-medium py-3 px-4 rounded-lg border border-primary-600 transition-colors duration-200"
-                  >
-                    Đề xuất hợp tác
-                  </a>
-                </div>
-              </div>
             </div>
+
           </div>
         </div>
       </section>

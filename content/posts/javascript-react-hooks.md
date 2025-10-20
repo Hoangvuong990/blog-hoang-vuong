@@ -1,6 +1,6 @@
 ---
 title: "React Hooks - Cách viết React hiện đại"
-date: "2024-01-30"
+date: "2025-10-15"
 excerpt: "Khám phá React Hooks - cách viết React component hiện đại với useState, useEffect, useContext và custom hooks."
 category: "JavaScript"
 tags: ["React", "Hooks", "Frontend", "JavaScript"]

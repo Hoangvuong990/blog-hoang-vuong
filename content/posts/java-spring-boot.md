@@ -1,6 +1,6 @@
 ---
 title: "Spring Boot - Xây dựng REST API chuyên nghiệp"
-date: "2024-01-25"
+date: "2025-09-15"
 excerpt: "Học cách sử dụng Spring Boot để xây dựng REST API mạnh mẽ. Từ cấu hình cơ bản đến database integration và security."
 category: "Java"
 tags: ["Spring Boot", "REST API", "Java", "Backend"]
