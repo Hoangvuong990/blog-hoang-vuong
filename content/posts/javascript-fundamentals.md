@@ -22,7 +22,6 @@ JavaScript (JS) là ngôn ngữ lập trình:
 ## Biến và kiểu dữ liệu
 
 ### Khai báo biến
-
 ```javascript
 // ES5 - var (không nên dùng)
 var oldWay = "Cách cũ";
@@ -31,16 +30,15 @@ var oldWay = "Cách cũ";
 let name = "Hoàng Vương";
 const age = 20;
 
-// Kiểu dữ liệu
-let isStudent = true;           // Boolean
-let score = 95.5;              // Number
-let message = "Hello World";    // String
-let data = null;                // Null
-let notDefined = undefined;     // Undefined
+// Kiểu dữ liệu cơ bản
+let isStudent = true;      // Boolean
+let score = 95.5;         // Number
+let message = "Hello";     // String
+let data = null;          // Null
+let notDefined;          // Undefined
 ```
 
 ### Kiểu dữ liệu phức tạp
-
 ```javascript
 // Array
 let fruits = ["apple", "banana", "orange"];

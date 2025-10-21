@@ -61,6 +61,10 @@
   .prose pre {
     @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
   }
+
+  .prose pre code {
+    @apply bg-transparent text-gray-100 p-0;
+  }
   
   .prose blockquote {
     @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 mb-4;
