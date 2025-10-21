@@ -4,11 +4,6 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
-  "functions": {
-    "api/**/*.ts": {
-      "runtime": "@vercel/node@1.15.4"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
