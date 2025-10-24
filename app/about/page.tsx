@@ -341,7 +341,61 @@ export default function About() {
       </section>
 
       {/* Contact CTA */}
-     
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 py-16">
+  <div className="max-w-5xl mx-auto px-6 text-center">
+    <h2 className="text-3xl font-bold text-gray-800 mb-10">
+      🎓 Chứng chỉ đạt được
+    </h2>
+
+    <div className="flex flex-wrap justify-center gap-6">
+      {[
+        {
+          title: "Networking Basics",
+          img: "/networking-basics.png",
+          link: "https://www.credly.com/badges/e34fd618-9935-4acc-bb70-e621a82c0554/public_url",
+        },
+        {
+          title: "JavaScript Essentials 1",
+          img: "/javascript-essentials-1.png",
+          link: "https://www.credly.com/badges/dfb12fe6-a890-4cbc-8feb-64a23cdc38f4/public_url",
+        },
+        {
+          title: "JavaScript Essentials 2",
+          img: "/javascript-essentials-2.png",
+          link: "https://www.credly.com/badges/2e522a87-74d0-4771-80be-ca0f8915e592/public_url",
+        },
+      ].map((cert) => (
+        <a
+          key={cert.title}
+          href={cert.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group w-64 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all p-6 flex flex-col items-center"
+        >
+          {/* Logo vuông, có viền sáng nhẹ */}
+          <div className="w-20 h-20 mb-4 rounded-xl overflow-hidden ring-4 ring-blue-200 group-hover:ring-blue-400 transition-all bg-white">
+            <img
+              src={cert.img}
+              alt={cert.title}
+              className="w-full h-full object-contain"
+            />
+          </div>
+
+          {/* Tên chứng chỉ */}
+          <h4 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+            {cert.title}
+          </h4>
+
+          {/* Ghi chú nhỏ */}
+          <p className="text-sm text-gray-500 mt-2">Cisco Credential</p>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  {/* Ánh sáng nền nhẹ */}
+  <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/20 to-white/10 pointer-events-none"></div>
+</section>
     </div>
   )
 }

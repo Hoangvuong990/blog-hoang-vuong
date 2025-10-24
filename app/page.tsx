@@ -76,6 +76,7 @@ export default async function Home() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Đinh Hoàng Vương</h3>
                   <p className="text-primary-600 font-medium mb-2">Sinh viên HUTECH</p>
                   <p className="text-gray-600 text-sm mb-4">Chuyên ngành An ninh mạng</p>
+                  <p className="text-yellow-500 text-sm font-bold mb-4">Phát hiện – Phòng thủ – Phát triển</p>
                   <div className="space-y-2 text-gray-600">
                   </div>
                 </div>
