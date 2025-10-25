@@ -252,9 +252,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">GitHub</h3>
-                    <p className="text-gray-600 mb-2">github.com/Zitests</p>
+                    <p className="text-gray-600 mb-2">github.com/Hoangvuong990</p>
                     <a 
-                      href="https://github.com/Zitests" 
+                      href="https://github.com/Hoangvuong990" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-primary-600 hover:text-primary-700 font-medium"

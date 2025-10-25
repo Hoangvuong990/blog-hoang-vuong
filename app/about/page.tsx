@@ -26,7 +26,7 @@ export default function About() {
               Liên hệ với tôi
             </Link>
             <a 
-              href="https://github.com/Zitests" 
+              href="https://github.com/Hoangvuong990" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-secondary"
@@ -115,12 +115,12 @@ export default function About() {
                   <div>
                     <h3 className="font-semibold text-gray-900">GitHub</h3>
                     <a 
-                      href="https://github.com/Zitests" 
+                      href="https://github.com/Hoangvuong990" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-primary-600 hover:text-primary-700"
                     >
-                      github.com/Zitests
+                      github.com/Hoangvuong990
                     </a>
                   </div>
                 </div>
