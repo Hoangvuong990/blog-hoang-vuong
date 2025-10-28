@@ -51,13 +51,15 @@ export default function Header() {
 
   {/* Nút tải CV */}
   <a
-    href="https://drive.google.com/uc?export=download&id=1tSU7YCAcCcQQgZZv4pDusi8LUmqP4Hx2"
-    download
-    className="px-4 py-2 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-600 hover:text-white transition-colors"
+    href="https://drive.google.com/file/d/1tSU7YCAcCcQQgZZv4pDusi8LUmqP4Hx2/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
   >
     Tải CV
   </a>
 </nav>
+
 
           {/* Mobile menu button */}
           <button
