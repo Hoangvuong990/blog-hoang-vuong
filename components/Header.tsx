@@ -23,32 +23,41 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link 
-              href="/" 
-              className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-            >
-              Trang chủ
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-            >
-              Giới thiệu
-            </Link>
-            <Link 
-              href="/blog" 
-              className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-            >
-              Blog
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
-            >
-              Liên hệ
-            </Link>
-          </nav>
+<nav className="hidden md:flex space-x-8">
+  <Link 
+    href="/" 
+    className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
+  >
+    Trang chủ
+  </Link>
+  <Link 
+    href="/about" 
+    className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
+  >
+    Giới thiệu
+  </Link>
+  <Link 
+    href="/blog" 
+    className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
+  >
+    Blog
+  </Link>
+  <Link 
+    href="/contact" 
+    className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
+  >
+    Liên hệ
+  </Link>
+
+  {/* Nút tải CV */}
+  <a
+    href="https://drive.google.com/uc?export=download&id=1tSU7YCAcCcQQgZZv4pDusi8LUmqP4Hx2"
+    download
+    className="px-4 py-2 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-600 hover:text-white transition-colors"
+  >
+    Tải CV
+  </a>
+</nav>
 
           {/* Mobile menu button */}
           <button
